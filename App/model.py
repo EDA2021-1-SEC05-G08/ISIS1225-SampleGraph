@@ -24,6 +24,7 @@
  *
  """
 import config
+import time
 from DISClib.ADT.graph import gr
 from DISClib.ADT import map as m
 from DISClib.ADT import list as lt
@@ -178,8 +179,11 @@ def minimumCostPaths(analyzer, initialStation):
     Calcula los caminos de costo mínimo desde la estacion initialStation
     a todos los demas vertices del grafo
     """
+    start_time = time.process_time()
     analyzer['paths'] = djk.Dijkstra(analyzer['connections'], initialStation)
-    return analyzer
+    stop_time = time.process_time()
+    elapsed_time_mseg = (stop_time - start_time)*1000
+    return elapsed_time_mseg
 
 
 def hasPath(analyzer, destStation):
@@ -188,7 +192,6 @@ def hasPath(analyzer, destStation):
     Se debe ejecutar primero la funcion minimumCostPaths
     """
     return djk.hasPathTo(analyzer['paths'], destStation)
-
 
 def minimumCostPath(analyzer, destStation):
     """

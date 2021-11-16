@@ -44,7 +44,7 @@ operación seleccionada.
 # ___________________________________________________
 
 
-servicefile = 'bus_routes_14000.csv'
+servicefile = 'singapur_bus_routes/bus_routes_14000.csv'
 initialStation = None
 
 # ___________________________________________________
@@ -83,7 +83,7 @@ def optionThree(cont):
 
 
 def optionFour(cont, initialStation):
-    controller.minimumCostPaths(cont, initialStation)
+    return controller.minimumCostPaths(cont, initialStation)
 
 
 def optionFive(cont, destStation):
@@ -135,7 +135,7 @@ def thread_cycle():
         elif int(inputs[0]) == 4:
             msg = "Estación Base: BusStopCode-ServiceNo (Ej: 75009-10): "
             initialStation = input(msg)
-            optionFour(cont, initialStation)
+            print(optionFour(cont, initialStation))
 
         elif int(inputs[0]) == 5:
             destStation = input("Estación destino (Ej: 15151-10): ")
